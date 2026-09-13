@@ -245,12 +245,12 @@ async def check_freecad_connection(
         version_info = await bridge.get_freecad_version()
         await bridge.disconnect()
 
-        print("✓ Connection successful!")
+        print("Connection successful!")
         print(f"  FreeCAD version: {version_info.get('version', 'unknown')}")
         print(f"  GUI available: {version_info.get('gui_available', 'unknown')}")
         return True
     except Exception as e:
-        print(f"✗ Connection failed: {e}")
+        print(f"Connection failed: {e}")
         return False
 
 
@@ -304,6 +304,7 @@ Environment Variables:
   FREECAD_HTTP_PORT      Port for HTTP transport (default: 8000)
   FREECAD_LOG_LEVEL      Logging level: DEBUG, INFO, WARNING, ERROR
                          (default: INFO)
+  FREECAD_TOOL_PROFILE   Tool catalog: full or print3d (default: full)
 
 Examples:
   # Start with default settings (XML-RPC mode, stdio transport)

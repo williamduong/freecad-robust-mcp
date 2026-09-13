@@ -276,6 +276,33 @@ just freecad::run-headless
 
 After starting the bridge, start/restart your MCP client (Claude Code, etc.) - it will connect automatically
 
+### Token-efficient tool profile
+
+The default `full` profile preserves the complete upstream tool catalogue for
+workbench development and advanced interactive operations. For everyday
+parametric parts and 3D-print workflows, set `FREECAD_TOOL_PROFILE=print3d` in
+the MCP client configuration. It advertises only 21 tools: Python execution,
+document/object inspection, validation, STEP/STL/3MF export, and optional GUI
+preview. This keeps the MCP tool schema small while retaining access to the
+complete FreeCAD Python API through `execute_python` and `safe_execute`.
+
+```json
+{
+  "mcpServers": {
+    "freecad-print3d": {
+      "command": "freecad-mcp",
+      "env": {
+        "FREECAD_MODE": "xmlrpc",
+        "FREECAD_TOOL_PROFILE": "print3d"
+      }
+    }
+  }
+}
+```
+
+Use `FREECAD_TOOL_PROFILE=full` temporarily when you need individual
+PartDesign, Draft, spreadsheet, macro, or assembly-oriented tools.
+
 #### Uninstalling the MCP Bridge
 
 To uninstall the Robust MCP Bridge workbench:
