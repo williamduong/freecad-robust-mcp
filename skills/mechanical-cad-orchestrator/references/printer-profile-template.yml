@@ -1,0 +1,12 @@
+# Copy per printer/material and fill only measured values.
+printer: ""
+process: FDM
+material: ""
+nozzle_mm: null
+layer_height_mm: null
+xy_compensation_mm: null
+clearance_mm:
+  tight_slide: null
+  free_slide: null
+  press_fit: null
+measurement_notes: "Coupon dimensions, orientation, slicer settings, and date."
