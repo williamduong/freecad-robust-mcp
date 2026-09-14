@@ -50,6 +50,17 @@ CAD file, scripts, exports, validation report, and preview there; do not leave
    propose a small coupon before committing to a costly full print. Update only
    from actual printer/slicer/measurement feedback; never claim a physical fit
    was proven without it.
+7. **Create final visual QA output.** After the model and exports pass
+   validation, create at least one 1200 px or larger isometric product image
+   that clearly shows the final visible surfaces. Prefer a reproducible
+   headless render with a neutral background, consistent camera, and soft
+   lighting. A technical viewport render is acceptable when a beauty render is
+   not available. Use GUI automation only as a fallback for capturing a
+   FreeCAD viewport; do not represent a generated concept image as a render of
+   the CAD model. For multi-part products, show the assembled state when it is
+   meaningful, and separate parts when that better verifies their details.
+   Save the final PNG and any scene or render script alongside the other
+   deliverables in the project directory.
 
 ## Delegation and context discipline
 
@@ -64,4 +75,5 @@ operations or load every reference preemptively.
 State: interpreted intent and assumptions; selected construction approach;
 research findings that changed a decision; named parameters and interfaces;
 validation results and output paths; remaining manufacturing caveats; and the
-next physical test when applicable.
+next physical test when applicable. Include the final visual-QA image path and
+whether it is a CAD render or a technical viewport capture.
