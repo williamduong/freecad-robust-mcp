@@ -49,6 +49,12 @@ python scripts/asset_library.py inspect --asset-dir D:\3D\asset-library\characte
 
 The helper accepts only a direct URL that the user is authorized to download. It does not search or circumvent host access controls.
 
+## Vector catalogues
+
+For SVG or DXF motifs, read [references/vector-sources.md](references/vector-sources.md) before sourcing. It routes to Wikimedia Commons, Openverse, Iconify, SVG Repo, and GitHub, with the license check appropriate to each source.
+
+Do not treat an HTML canvas, preview image, or a raster PNG as vector source. Obtain the original SVG/DXF where available; otherwise keep the raster only as a visual reference and ask whether vectorization is authorized. When a source supplies SVG only, derive DXF locally with Inkscape if the FreeCAD workflow needs DXF, and retain both the raw SVG and derived DXF in the asset folder.
+
 ## Sketchfab
 
 Sketchfab is the preferred searchable character catalogue when its individual model license is acceptable. Its Download API requires a user-authenticated Sketchfab account and returns GLB/glTF/USDZ, not the creator's original FBX/OBJ source. Read [references/sketchfab.md](references/sketchfab.md) before using it. If no token is available, ask the user to sign in through the official browser page or to provide a user-created API token through their normal secret mechanism; never request that it be pasted into chat.
