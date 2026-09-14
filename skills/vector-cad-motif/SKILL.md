@@ -10,6 +10,7 @@ Create editable, fabrication-safe vector motifs. The source image is a visual re
 ## Choose the approach
 
 - For a bold logo, stencil, icon, or one-color line art, use VTracer and simplify the resulting paths.
+- For flat artwork with anti-aliased colours, compare a `bw` trace with a colour trace. Prefer the monochrome result when it preserves the recognisable silhouette with materially fewer paths; it is usually cleaner and more reliable for a small FDM motif.
 - For a small lid motif with recognisable features, manually redraw the few essential shapes after tracing. Automatic tracing is a starting point, not proof of printability.
 - For photos, gradients, or detailed illustrations, do not force them into a CAD motif. Ask the user whether to use a simplified silhouette instead.
 
@@ -34,6 +35,7 @@ python scripts/svg_audit.py motif.svg
 ```
 
 Retain the reference and the raw trace. Put cleaned SVGs in `derived`, with a small manifest noting scale, intended operation, and source provenance.
+Ensure the final root SVG has a `viewBox`; add one from its width and height when the tracer omits it, so CAD import has a stable coordinate system.
 
 ## FreeCAD handoff
 
