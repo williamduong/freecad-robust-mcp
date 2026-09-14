@@ -12,6 +12,7 @@ Create editable, fabrication-safe vector motifs. The source image is a visual re
 - For a bold logo, stencil, icon, or one-color line art, use VTracer and simplify the resulting paths.
 - For flat artwork with anti-aliased colours, compare a `bw` trace with a colour trace. Prefer the monochrome result when it preserves the recognisable silhouette with materially fewer paths; it is usually cleaner and more reliable for a small FDM motif.
 - For a small lid motif with recognisable features, manually redraw the few essential shapes after tracing. Automatic tracing is a starting point, not proof of printability.
+- When a character depends on facial features, preserve the hood/head, face field, eyes, nose/mouth, and emblem as separate closed regions (or documented SVG layers). Do not fuse every imported path into one relief merely because it forms a valid solid.
 - For photos, gradients, or detailed illustrations, do not force them into a CAD motif. Ask the user whether to use a simplified silhouette instead.
 
 ## Reference and rights
@@ -39,4 +40,8 @@ Ensure the final root SVG has a `viewBox`; add one from its width and height whe
 
 ## FreeCAD handoff
 
-Import the audited SVG as geometry, set the physical scale explicitly, and inspect the outline before extrusion. Use a shallow 0.6–1.2 mm pad or pocket for decorative relief; use a full cut only after confirming every enclosed region has a structural bridge. Export a preview and perform visual QA before final STL export.
+Import the audited SVG as geometry, set the physical scale explicitly, and inspect the outline before extrusion. Treat a colour trace as a useful layer map when it separates facial regions cleanly; a monochrome trace can still be the cleaner contour source.
+
+For a recognisable character relief, assign deliberate Z hierarchy rather than one uniform pad: for example a low hood/head field, a distinct face field, recessed eyes and mouth, and a higher small emblem. Keep each printed step at least two layers high (normally 0.3–0.5 mm) and keep small face marks at least 0.8 mm wide or engrave them. Preserve holes and nested contours when converting SVG wires to faces; test the resulting boolean, rather than making each wire an independent filled face.
+
+Use a shallow 0.6–1.2 mm pad or pocket for decorative relief; use a full cut only after confirming every enclosed region has a structural bridge. Export a top orthographic preview as well as the isometric visual QA, and verify at final motif scale that eyes, nose/mouth, and emblem remain visibly distinct before final STL export.

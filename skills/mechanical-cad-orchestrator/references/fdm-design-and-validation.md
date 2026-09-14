@@ -6,10 +6,19 @@ Make fit and compensation named parameters, never unexplained offsets. If no
 printer profile exists, state the missing data and choose a conservative coupon
 instead of inventing a universal tolerance.
 
-For enclosures with sliding lids, verify the retained item envelope, wall and
-floor thickness, lid travel, positive stop, rail engagement, finger access, and
-the open/closed clearance. Evaluate print orientation, bridging/overhangs,
-support removal, anisotropic strength, and likely wear surfaces.
+For enclosures with sliding lids, model an explicit assembly/insertion path and
+at least closed, working-open, and endpoint poses. For each pose and sampled
+travel positions, check that the lid and rail/body do not intersect except at
+declared stop faces; record usable travel, minimum rail engagement, open/closed
+clearance, and finger access to the actual pull feature. A lid must have either
+a positive stop that is compatible with its assembly path or a documented,
+intentional removable endpoint. Do not accept a design where end walls block
+the only path needed to insert the lid, or where the pull feature is hidden
+behind a wall in the closed pose.
+
+Also verify the retained item envelope, wall and floor thickness, print
+orientation, bridging/overhangs, support removal, anisotropic strength, and
+likely wear surfaces.
 
 Use this loop: valid CAD solid and mesh -> process/orientation check -> export
 -> small fit coupon -> print and measure -> update named calibration parameters

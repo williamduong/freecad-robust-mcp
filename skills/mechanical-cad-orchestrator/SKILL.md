@@ -42,8 +42,13 @@ CAD file, scripts, exports, validation report, and preview there; do not leave
    full profile only when a specialized tool materially reduces risk or work.
 5. **Verify the design, not just command success.** Confirm recompute succeeds,
    the result is a valid positive-volume solid, critical dimensions and
-   clearances are represented, and requested STEP/STL/3MF files export. Use
-   `safe_execute` and `undo_if_invalid` around risky edits.
+   clearances are represented, and requested STEP/STL/3MF files export. For a
+   moving assembly, validate a kinematic use path: an assembly/insertion path,
+   closed and intended-open poses, sampled swept clearance, user access to the
+   actuator, rail engagement at every retained pose, and the intended physical
+   stop or deliberate removable endpoint. A valid solid is not evidence that a
+   mechanism can be assembled or operated. Use `safe_execute` and
+   `undo_if_invalid` around risky edits.
 6. **For FDM / 3D printing, run the manufacturing loop.** Read
    [FDM design and validation](references/fdm-design-and-validation.md). Use
    named fit parameters, check orientation/support/overhang implications, then
