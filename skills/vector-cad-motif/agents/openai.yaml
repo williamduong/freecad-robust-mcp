@@ -1,0 +1,3 @@
+interface:
+  display_name: "Vector CAD Motif"
+  short_description: "Trace images into print-safe SVG motifs"
