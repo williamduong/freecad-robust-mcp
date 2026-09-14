@@ -47,7 +47,10 @@ CAD file, scripts, exports, validation report, and preview there; do not leave
    closed and intended-open poses, sampled swept clearance, user access to the
    actuator, rail engagement at every retained pose, and the intended physical
    stop or deliberate removable endpoint. A valid solid is not evidence that a
-   mechanism can be assembled or operated. Use `safe_execute` and
+   mechanism can be assembled or operated. Treat a failed path check as a
+   design failure, not a presentational issue: revise the mechanism before
+   exporting production files. Save the pose coordinates and clearance/overlap
+   results in the validation report. Use `safe_execute` and
    `undo_if_invalid` around risky edits.
 6. **For FDM / 3D printing, run the manufacturing loop.** Read
    [FDM design and validation](references/fdm-design-and-validation.md). Use
@@ -65,7 +68,10 @@ CAD file, scripts, exports, validation report, and preview there; do not leave
    the CAD model. For multi-part products, show the assembled state when it is
    meaningful, and separate parts when that better verifies their details.
    Save the final PNG and any scene or render script alongside the other
-   deliverables in the project directory.
+   deliverables in the project directory. For a moving product, also render an
+   operation QA image that makes the entry/opening, actuator access, and the
+   relation of moving and stationary parts inspectable; an attractive closed
+   render alone cannot pass motion QA.
 
 ## Delegation and context discipline
 
@@ -81,4 +87,6 @@ State: interpreted intent and assumptions; selected construction approach;
 research findings that changed a decision; named parameters and interfaces;
 validation results and output paths; remaining manufacturing caveats; and the
 next physical test when applicable. Include the final visual-QA image path and
-whether it is a CAD render or a technical viewport capture.
+whether it is a CAD render or a technical viewport capture. For a mechanism,
+include the pose table and explicitly state whether the end state is captive or
+intentionally removable.
