@@ -10,6 +10,13 @@ assemblies, and 3D-printable components. Act as a design engineer: understand
 the job to be done before selecting a CAD operation. Do not use it for purely
 artistic meshes, certification claims, or unverified CAM/FEA conclusions.
 
+## Mandatory artifact location
+
+Unless the user explicitly chooses another location, create a descriptive
+project directory below `D:\3D` before generating any model. Save the source
+CAD file, scripts, exports, validation report, and preview there; do not leave
+3D deliverables in Documents, Desktop, or a repository.
+
 ## Workflow
 
 1. **Turn the request into a design brief.** Identify the object, user goal,
