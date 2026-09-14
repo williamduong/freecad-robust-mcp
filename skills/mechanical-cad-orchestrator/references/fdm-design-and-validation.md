@@ -30,6 +30,33 @@ Also verify the retained item envelope, wall and floor thickness, print
 orientation, bridging/overhangs, support removal, anisotropic strength, and
 likely wear surfaces.
 
+## Per-part printability gate
+
+Before accepting a printable assembly, evaluate every exported part separately
+in its declared print orientation. Record the bed-contact faces, unsupported
+overhangs/bridges, the largest unsupported span, support policy, and any
+surface that must remain cosmetic or dimensionally accurate. A part fails this
+gate if its intended orientation leaves a large plate or roof bridging between
+narrow rails/tongues, even when the CAD solid and assembly sweep are valid.
+Do not hide that failure by calling the part "printable"; either redesign its
+cross-section, deliberately choose/remove support, or choose and document a
+different orientation.
+
+For a flush sliding lid, include a section normal to the slide direction and
+measure the actual, post-boolean geometry: panel thickness over its unsupported
+span; tongue and groove envelopes; clearance at every limiting face; and the
+remaining wall web/cap after a groove is cut. Named values are not sufficient
+when later booleans, fillets, or overlap used to unite a solid change them.
+Flag a thin, wide panel as a flex/warp risk and require a stiffness decision or
+coupon; do not infer stiffness from a valid mesh. When no calibrated printer
+profile is available, use a coupon containing the full tongue/groove section
+and enough panel width to expose bridging or flex, not only a tiny rail strip.
+
+The digital report must state pass/fail for: assembly motion, each part's print
+orientation/support check, interface fit envelope, remaining structural web,
+and the physical coupon needed. A failed per-part gate blocks final production
+STL acceptance, though diagnostic exports may still be saved.
+
 Use this loop: valid CAD solid and mesh -> process/orientation check -> export
 -> small fit coupon -> print and measure -> update named calibration parameters
 -> revalidate -> full-part acceptance. Physical acceptance requires real slicer,

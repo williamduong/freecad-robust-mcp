@@ -54,10 +54,13 @@ CAD file, scripts, exports, validation report, and preview there; do not leave
    `undo_if_invalid` around risky edits.
 6. **For FDM / 3D printing, run the manufacturing loop.** Read
    [FDM design and validation](references/fdm-design-and-validation.md). Use
-   named fit parameters, check orientation/support/overhang implications, then
-   propose a small coupon before committing to a costly full print. Update only
-   from actual printer/slicer/measurement feedback; never claim a physical fit
-   was proven without it.
+   named fit parameters and pass the per-part printability gate before calling
+   the design digitally accepted. The gate requires a declared print
+   orientation, bed-contact/unsupported-span check, cross-section of every
+   sliding interface, remaining wall-web check, and an appropriate coupon when
+   calibration is absent. Then propose a small coupon before committing to a
+   costly full print. Update only from actual printer/slicer/measurement
+   feedback; never claim a physical fit was proven without it.
 7. **Create final visual QA output.** After the model and exports pass
    validation, create at least one 1200 px or larger isometric product image
    that clearly shows the final visible surfaces. Prefer a reproducible
